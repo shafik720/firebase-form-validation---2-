@@ -46,6 +46,12 @@ function App() {
           <div className="col-lg-6 mx-auto">
             <Form>
               <h2 className="text-center text-primary"> {registered ? 'Log In' : 'Sign Up' } </h2>
+
+              { registered && <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>User Name :</Form.Label>
+                <Form.Control onBlur={emailHandle} type="email" placeholder="Username" required />
+              </Form.Group>}
+
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control onBlur={emailHandle} type="email" placeholder="Enter email" required />
