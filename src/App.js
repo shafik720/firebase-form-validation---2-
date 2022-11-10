@@ -13,12 +13,16 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const[error, setError] = useState('');
+  const[registered, setRegistered] = useState(false);
 
   function emailHandle(e) {
     setEmail(e.target.value);
   }
   function passwordHandle(e) {
     setPassword(e.target.value);
+  }
+  function checkBoxHandle(e){
+    setRegistered(e.target.checked);
   }
   function signUp(e) {
     e.preventDefault();
@@ -31,7 +35,7 @@ function App() {
         const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorCode);
-        console.log(errorCode)
+        console.log(error)
       });
 
   }
@@ -41,7 +45,7 @@ function App() {
         <div className="row">
           <div className="col-lg-6 mx-auto">
             <Form>
-              <h2 className="text-center text-primary">Sign Up</h2>
+              <h2 className="text-center text-primary"> {registered ? 'Log In' : 'Sign Up' } </h2>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control onBlur={emailHandle} type="email" placeholder="Enter email" required />
@@ -53,7 +57,7 @@ function App() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Already a Member" />
+                <Form.Check onChange={checkBoxHandle} type="checkbox" label="Already a Member" />
               </Form.Group>
               {/* error message  */}
               <h4 className="text-danger">{error}</h4>
