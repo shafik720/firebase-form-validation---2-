@@ -12,6 +12,7 @@ function App() {
   const auth = getAuth(app);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const[error, setError] = useState('');
 
   function emailHandle(e) {
     setEmail(e.target.value);
@@ -29,7 +30,8 @@ function App() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage)
+        setError(errorCode);
+        console.log(errorCode)
       });
 
   }
@@ -53,6 +55,8 @@ function App() {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Already a Member" />
               </Form.Group>
+              {/* error message  */}
+              <h4 className="text-danger">{error}</h4>
               <Button onClick={signUp} variant="primary" type="submit">
                 Sign up
               </Button>
