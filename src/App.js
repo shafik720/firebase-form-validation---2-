@@ -12,8 +12,8 @@ function App() {
   const auth = getAuth(app);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const[error, setError] = useState('');
-  const[registered, setRegistered] = useState(false);
+  const [error, setError] = useState('');
+  const [registered, setRegistered] = useState(false);
 
   function emailHandle(e) {
     setEmail(e.target.value);
@@ -21,13 +21,13 @@ function App() {
   function passwordHandle(e) {
     setPassword(e.target.value);
   }
-  function checkBoxHandle(e){
+  function checkBoxHandle(e) {
     setRegistered(e.target.checked);
   }
   function signUp(e) {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {        
+      .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
       })
@@ -37,7 +37,18 @@ function App() {
         setError(errorCode);
         console.log(error)
       });
-
+  }
+  function signIn(e) {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   }
   return (
     <div>
@@ -45,9 +56,9 @@ function App() {
         <div className="row">
           <div className="col-lg-6 mx-auto">
             <Form>
-              <h2 className="text-center text-primary"> {registered ? 'Log In' : 'Sign Up' } </h2>
+              <h2 className="text-center text-primary"> {registered ? 'Log In' : 'Sign Up'} </h2>
 
-              { registered && <Form.Group className="mb-3" controlId="formBasicEmail">
+              {registered && <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>User Name :</Form.Label>
                 <Form.Control onBlur={emailHandle} type="email" placeholder="Username" required />
               </Form.Group>}
@@ -68,7 +79,7 @@ function App() {
               {/* error message  */}
               <h4 className="text-danger">{error}</h4>
               <Button onClick={signUp} variant="primary" type="submit">
-                {registered ? 'Log in' : 'Sign up'}                
+                {registered ? 'Log in' : 'Sign up'}
               </Button>
             </Form>
           </div>
