@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from 'react-bootstrap';
 import app from './firebase.init';
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
 
@@ -39,15 +39,18 @@ function App() {
       });
   }
   function signIn(e) {
+    e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        
+        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorCode);
+        console.log(errorCode);
       });
   }
   return (
@@ -60,7 +63,7 @@ function App() {
 
               {registered && <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>User Name :</Form.Label>
-                <Form.Control onBlur={emailHandle} type="email" placeholder="Username" required />
+                <Form.Control onBlur={emailHandle} type="email" placeholder="Username" />
               </Form.Group>}
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -78,9 +81,16 @@ function App() {
               </Form.Group>
               {/* error message  */}
               <h4 className="text-danger">{error}</h4>
-              <Button onClick={signUp} variant="primary" type="submit">
-                {registered ? 'Log in' : 'Sign up'}
+              {registered ?
+                <Button onClick={signIn} variant="primary" type="submit">
+                  Log In
+                </Button>
+                :
+                <Button onClick={signUp} variant="primary" type="submit">
+                  Sign Up
               </Button>
+              }
+
             </Form>
           </div>
         </div>
