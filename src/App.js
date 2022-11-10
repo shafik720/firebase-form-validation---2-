@@ -4,11 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from 'react-bootstrap';
 import app from './firebase.init';
 import { getAuth } from "firebase/auth";
+import { useState } from 'react';
 
 
 
 function App() {
   const auth = getAuth(app);
+  const[email, setEmail] = useState('');
+  const[password, setPassword] = useState('');
+
+  function signUp(e){
+    e.preventDefault();
+    console.log('hello');
+  }
   return (
     <div>
       <div className="container my-5">
@@ -31,8 +39,8 @@ function App() {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Already a Member" />
               </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
+              <Button onClick={signUp} variant="primary" type="submit">
+                Sign up
               </Button>
             </Form>
           </div>
