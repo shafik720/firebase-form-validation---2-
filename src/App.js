@@ -62,7 +62,7 @@ function App() {
               {/* error message  */}
               <h4 className="text-danger">{error}</h4>
               <Button onClick={signUp} variant="primary" type="submit">
-                Sign up
+                {registered ? 'Log in' : 'Sign up'}                
               </Button>
             </Form>
           </div>
