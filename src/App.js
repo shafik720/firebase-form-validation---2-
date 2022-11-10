@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from 'react-bootstrap';
 import app from './firebase.init';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
 
@@ -24,11 +24,19 @@ function App() {
   function checkBoxHandle(e) {
     setRegistered(e.target.checked);
   }
+  function verification() {
+    const auth = getAuth();
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        console.log('Verification email sent');
+      });
+  }
   function signUp(e) {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        verification();
         console.log(user);
       })
       .catch((error) => {
