@@ -10,12 +10,18 @@ import { useState } from 'react';
 
 function App() {
   const auth = getAuth(app);
-  const[email, setEmail] = useState('');
-  const[password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  function signUp(e){
+  function emailHandle(e){
+    setEmail(e.target.value);
+  }
+  function passwordHandle(e){
+    setPassword(e.target.value);
+  }
+  function signUp(e) {
     e.preventDefault();
-    console.log('hello');
+    
   }
   return (
     <div>
@@ -26,16 +32,14 @@ function App() {
               <h2 className="text-center text-primary">Sign Up</h2>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
+                <Form.Control onBlur={emailHandle} type="email" placeholder="Enter email" required />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control onBlur={passwordHandle} type="password" placeholder="Password" />
               </Form.Group>
+
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Already a Member" />
               </Form.Group>
