@@ -2,9 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from 'react-bootstrap';
+import app from './firebase.init';
+import { getAuth } from "firebase/auth";
+
 
 
 function App() {
+  const auth = getAuth(app);
   return (
     <div>
       <div className="container my-5">
