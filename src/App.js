@@ -11,6 +11,7 @@ function App() {
         <div className="row">
           <div className="col-lg-6 mx-auto">
             <Form>
+              <h2 className="text-center text-primary">Sign Up</h2>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
