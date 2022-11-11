@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from 'react-bootstrap';
 import app from './firebase.init';
-import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from 'react';
 
 
@@ -122,7 +122,7 @@ function App() {
         <div className="row">
           <div className="col-lg-6 mx-auto my-5">
             <div className="">
-              <button>Connect With Facebook</button>
+              <button onClick={facebookSignIn} >Connect With Facebook</button>
             </div>
           </div>
         </div>
