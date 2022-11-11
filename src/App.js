@@ -102,6 +102,13 @@ function App() {
             </Form>
           </div>
         </div>
+        <div className="row">
+          <div className="col-lg-6 mx-auto my-5">
+            <div className="">
+              <button>Connect With Facebook</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
