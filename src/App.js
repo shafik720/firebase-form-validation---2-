@@ -10,6 +10,8 @@ import { useState } from 'react';
 
 function App() {
   const auth = getAuth(app);
+  const provider = new FacebookAuthProvider();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
