@@ -63,6 +63,21 @@ function App() {
         console.log(errorCode);
       });
   }
+
+  function facebookSignIn(){
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    const user = result.user;
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorCode);
+    console.log(errorCode);
+  });
+  }
   return (
     <div>
       <div className="container my-5">
