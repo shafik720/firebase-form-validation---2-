@@ -2,3 +2,9 @@
 .headerDiv{
     margin: 50px;
 }
+
+.headerDiv a{
+    text-decoration: none;
+    margin: 0 30px;
+    font-size: 25px;
+}
