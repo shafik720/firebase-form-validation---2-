@@ -17,7 +17,6 @@ function App() {
     <div>
       <Header></Header>
       <Routes>
-        <Route path="/" element={<Header></Header>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
     </div>
