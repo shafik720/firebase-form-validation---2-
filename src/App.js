@@ -5,15 +5,15 @@ import { Button, Form } from 'react-bootstrap';
 import app from './firebase.init';
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from 'react';
+import Header from './Components/Header/Header';
 
 
 
 function App() { 
-
   
   return (
     <div>
-      <h2>Refreshing all</h2>
+      <Header></Header>
     </div>
   );
 }
