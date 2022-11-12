@@ -6,7 +6,8 @@ import app from './firebase.init';
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from 'react';
 import Header from './Components/Header/Header';
-import { Router, Routes } from 'react-router';
+import { Route, Router, Routes } from 'react-router';
+import Login from './Components/Login/Login';
 
 
 
@@ -16,7 +17,8 @@ function App() {
     <div>
       <Header></Header>
       <Routes>
-        <Router ></Router>
+        <Route path="/" element={<Header></Header>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
     </div>
   );
