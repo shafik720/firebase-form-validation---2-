@@ -9,6 +9,7 @@ import Header from './Components/Header/Header';
 import { Route, Router, Routes } from 'react-router';
 import Login from './Components/Login/Login';
 import Home from './Home/Home';
+import Error from './Components/Error/Error';
 
 
 
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="*" element={}></Route>
+        <Route path="*" element={<Error></Error>}></Route>
       </Routes>
     </div>
   );
