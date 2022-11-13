@@ -12,10 +12,11 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
             <Link to="/shop">Shop</Link>
             {
-                user.email ? 
-                <Link to="/login">Log Out</Link>
+                user?.uid 
+                ?                 
+                <button>Log Out</button>
                 :
-                <Link to="/login">Login</Link>
+                <button>Log In</button>
             }
             
             <Link to="/register">Register</Link>
