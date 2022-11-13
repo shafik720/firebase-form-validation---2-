@@ -4,7 +4,8 @@ import useFirebase from '../../hooks/useFirebase';
 import './Register.css'
 
 const Register = () => {
-    let {useGoogleAuth} = useFirebase();
+    let {useGoogleAuth, user} = useFirebase();
+    console.log(user);
     
     return (
         <div>
