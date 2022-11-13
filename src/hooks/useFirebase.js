@@ -23,7 +23,10 @@ function useFirebase() {
         
     }
     function handleSignOut(){
-        
+        signOut(auth)
+        .then(()=>{
+
+        })
     }
     useEffect(()=>{
         onAuthStateChanged(auth, user => {
@@ -31,7 +34,7 @@ function useFirebase() {
           });
     },[])
 
-    return { user, useGoogleAuth }
+    return { user, useGoogleAuth, handleSignOut }
 }
 
 export default useFirebase;
