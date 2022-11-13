@@ -5,12 +5,15 @@ import './Header.css'
 
 const Header = () => {
     let {user, handleSignOut} = useFirebase();
-    return (
+    return (        
         <div className="headerDiv text-center">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/shop">Shop</Link>
+            <span>{
+                    user?.uid ? `${user.displayName}` : ''
+                }</span>
             {
                 user?.uid 
                 ?                 
