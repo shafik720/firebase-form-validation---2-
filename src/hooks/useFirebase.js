@@ -22,6 +22,9 @@ function useFirebase() {
             });
         
     }
+    function handleSignOut(){
+        
+    }
     useEffect(()=>{
         onAuthStateChanged(auth, user => {
             setUser(user);
