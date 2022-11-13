@@ -11,7 +11,13 @@ const Header = () => {
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/shop">Shop</Link>
-            <Link to="/login">Login</Link>
+            {
+                user.email ? 
+                <Link to="/login">Log Out</Link>
+                :
+                <Link to="/login">Login</Link>
+            }
+            
             <Link to="/register">Register</Link>
         </div>
     );
