@@ -5,7 +5,6 @@ import app from "../firebase.init";
 function useFirebase() {
     let [user, setUser] = useState({});
     function useGoogleAuth() {
-        console.log('ok go');
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
