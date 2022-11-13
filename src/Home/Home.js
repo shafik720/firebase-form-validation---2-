@@ -8,7 +8,7 @@ const Home = () => {
         <div className='text-center'>
             <h2 className="text-center">Home is Where the Heart is !</h2>
             {
-                user.uid ? <h2 className=''>User : {user.displayName} </h2>  : <h2>Nobody</h2>
+                user?.uid ? <h2 className='text-success'>User : {user.displayName} </h2>  : <h2 className='text-danger'>Nobody</h2>
             }
         </div>
     );
