@@ -5,7 +5,6 @@ import './Register.css'
 
 const Register = () => {
     let {useGoogleAuth, user} = useFirebase();
-    console.log(user);
     return (
         <div>
             <div className="login-div">
