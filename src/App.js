@@ -12,6 +12,7 @@ import Home from './Home/Home';
 import Error from './Components/Error/Error';
 import Register from './Components/Register/Register';
 import Orders from './Components/Orders/Orders';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 
 
@@ -23,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/orders" element={<Orders></Orders>}></Route>
+        <Route path="/orders" element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<Error></Error>}></Route>
       </Routes>
